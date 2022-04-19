@@ -51,14 +51,33 @@ public class Assesment{
             arr[i] = Integer.parseInt(inputArr[i]);
         }
 
+        List<List<Integer>> allPairs = getAllPairs(arr , sum);
+        Set<List<Integer>> pairsOnce = getPairsOnce(arr , sum);
+        Set<String> pairsUnique = getUniquePairs(arr , sum);
+
+
         System.out.println("All Pairs:");
-        System.out.println(getAllPairs(arr , sum));
+        if(allPairs.size() == 0 ){
+            System.out.println("No pairs found");
+            return;
+        }else{
+            System.out.println(allPairs);
+        }
+
 
         System.out.println("Unique Pairs:");
-        System.out.println(getPairsOnce(arr , sum));
+        if(pairsOnce.size() == 0 ){
+            System.out.println("No pairs found");
+        }else{
+            System.out.println(pairsOnce);
+        }
 
         System.out.println("Unique Pairs Once:");
-        System.out.println(getUniquePairs(arr , sum));
+        if(pairsUnique.size() == 0 ){
+            System.out.println("No pairs found");
+        }else{
+            System.out.println(pairsUnique);
+        }
     }
 
 
