@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Assesment{
 
@@ -23,6 +25,9 @@ public class Assesment{
 
         System.out.println("All Pairs:");
         System.out.println(getAllPairs(arr , 10));
+
+        System.out.println("All Pairs:");
+        System.out.println(getPairsOnce(arr , 10));
     }
 
 
@@ -41,5 +46,21 @@ public class Assesment{
         }
         return result;
     }
+
+    public static Set<List<Integer>> getPairsOnce(Integer[] array, int sum){
+        Set<List<Integer>> set = new LinkedHashSet<List<Integer>>();
+        for(int i = 0; i < array.length; i++){
+            for(int j = 0; j < array.length; j++){
+                if(array[i] + array[j] == sum){
+                    List<Integer> pairs = new ArrayList<>();
+                    pairs.add(array[i]);
+                    pairs.add(array[j]);
+                    set.add (pairs);
+                }
+            }
+        }
+        return set;
+    }
+
 
 }
