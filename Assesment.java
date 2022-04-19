@@ -1,3 +1,4 @@
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -27,21 +28,31 @@ public class Assesment{
 
             if(inputArr.length >= 4){
                 while(true){
-                    System.out.println("Please enter the expected SUM: ");
-                    input = sc.nextLine();
-                    try {
-                        sum = Integer.parseInt(input);
-                        if(sum != 0){
-                            mainMethod(inputArr,sum);
+                    if(sum == 0){
+                        System.out.println("Please enter the expected SUM: ");
+                        input = sc.nextLine();
+                        try {
+                            sum = Integer.parseInt(input);
+                            if(sum != 0){
+                                while(true){
+                                    try {
+                                        mainMethod(inputArr,sum);
+                                        break;
+                                    } catch (Exception e) {
+                                        System.out.println("Please input the numbers (separated by space): ");
+                                        input = sc.nextLine();
+                                        inputArr = input.split(" ");
+                                    }
+                                }
+                            }
                             break;
+                        } catch (Exception e) {
+                            System.out.println("Please enter a valid number");
                         }
-                    } catch (Exception e) {
-                        System.out.println("Please enter a valid number");
                     }
-                   
                 }
-                break;
             }
+            break;
         }
     }
 
@@ -79,6 +90,7 @@ public class Assesment{
         }else{
             System.out.println(pairsUnique);
         }
+
     }
 
 
