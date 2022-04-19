@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Scanner;
@@ -26,8 +28,11 @@ public class Assesment{
         System.out.println("All Pairs:");
         System.out.println(getAllPairs(arr , 10));
 
-        System.out.println("All Pairs:");
+        System.out.println("Unique Pairs:");
         System.out.println(getPairsOnce(arr , 10));
+
+        System.out.println("Unique Pairs Once:");
+        System.out.println(getUniquePairs(arr , 10));
     }
 
 
@@ -62,5 +67,21 @@ public class Assesment{
         return set;
     }
 
+    public static Set<String> getUniquePairs(Integer[] array, int sum){
+        Set<Integer> set = new HashSet<>(Arrays.asList(array));
+
+        // this set will keep track of the unique pairs.
+        Set<String> uniquePairs = new HashSet<String>();
+    
+        for (int i : array) {
+            int x = sum - i;
+            if (set.contains(x)) {
+                int[] y = new int[] { x, i };
+                Arrays.sort(y);
+                uniquePairs.add(y[0] + "," + y[1]);
+            }
+        }
+        return uniquePairs;
+    }
 
 }
