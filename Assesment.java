@@ -51,11 +51,8 @@ public class Assesment{
             arr[i] = Integer.parseInt(inputArr[i]);
         }
 
+        //Get all pairs
         List<List<Integer>> allPairs = getAllPairs(arr , sum);
-        Set<List<Integer>> pairsOnce = getPairsOnce(arr , sum);
-        Set<String> pairsUnique = getUniquePairs(arr , sum);
-
-
         System.out.println("All Pairs:");
         if(allPairs.size() == 0 ){
             System.out.println("No pairs found");
@@ -64,7 +61,8 @@ public class Assesment{
             System.out.println(allPairs);
         }
 
-
+        //Get all unique pairs
+        Set<List<Integer>> pairsOnce = getPairsOnce(arr , sum);
         System.out.println("Unique Pairs:");
         if(pairsOnce.size() == 0 ){
             System.out.println("No pairs found");
@@ -72,6 +70,9 @@ public class Assesment{
             System.out.println(pairsOnce);
         }
 
+
+        //Get unique pairs
+        Set<String> pairsUnique = getUniquePairs(arr , sum);
         System.out.println("Unique Pairs Once:");
         if(pairsUnique.size() == 0 ){
             System.out.println("No pairs found");
@@ -82,8 +83,8 @@ public class Assesment{
 
 
     public static List<List<Integer>> getAllPairs(Integer[] array, int sum){
-
         List<List<Integer>> result = new ArrayList<>();
+        
         for(int i =0; i<array.length;i++){
             for(int j = 0; j<array.length;j++){
                 if(array[i] + array[j] == sum){
@@ -99,6 +100,7 @@ public class Assesment{
 
     public static Set<List<Integer>> getPairsOnce(Integer[] array, int sum){
         Set<List<Integer>> set = new LinkedHashSet<List<Integer>>();
+
         for(int i = 0; i < array.length; i++){
             for(int j = 0; j < array.length; j++){
                 if(array[i] + array[j] == sum){
@@ -114,8 +116,6 @@ public class Assesment{
 
     public static Set<String> getUniquePairs(Integer[] array, int sum){
         Set<Integer> set = new HashSet<>(Arrays.asList(array));
-
-        // this set will keep track of the unique pairs.
         Set<String> uniquePairs = new HashSet<String>();
     
         for (int i : array) {
